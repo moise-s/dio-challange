@@ -8,6 +8,7 @@ import dio.model.Endereco;
 
 @FeignClient(name = "viacep", url = "https://viacep.com.br/ws")
 public interface EnderecoService {
+
     @GetMapping("/{cep}/json/")
     Endereco consultarCep(@PathVariable("cep") String cep);
 }
