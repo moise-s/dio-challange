@@ -30,7 +30,6 @@
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 
-		<!-- OpenAPI/Swagger (adicionado manualmente) -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
