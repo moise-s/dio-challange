@@ -11,6 +11,8 @@ import dio.model.Endereco;
 public interface ViaCepService {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{cep}/json/")
-    Endereco consultarCep(@PathVariable("cep") String cep); //CONSERTAR AQUI
-    }
+    static Endereco consultarCep(@PathVariable("cep") String cep) {
+        // TODO Auto-generated method stub
+        return null;
+    } // CONSERTAR AQUI
 }
