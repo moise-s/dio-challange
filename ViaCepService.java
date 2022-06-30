@@ -1,4 +1,4 @@
-package dio.controller;
+package dio.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +11,6 @@ public interface ViaCepService {
     @GetMapping("/{cep}/json/")
     static Endereco consultarCep(@PathVariable("cep") String cep) {
         // TODO Auto-generated method stub
-        return cep;
+        return null;
     }
 }
