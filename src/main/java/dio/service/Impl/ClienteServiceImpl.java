@@ -3,13 +3,13 @@ package dio.service.Impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dio.controller.ViaCepService;
 import dio.model.Cliente;
 import dio.model.ClienteRepository;
 import dio.model.Endereco;
 import dio.model.EnderecoRepository;
 import dio.service.ClienteService;
-import dio.service.EnderecoService;
+import dio.service.ViaCepService;
+
 import java.util.*;
 
 @Service
@@ -20,7 +20,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private EnderecoRepository enderecoRepository;
     @Autowired
-    private EnderecoService enderecoService;
+    private ViaCepService enderecoService;
 
     @Override
     public Iterable<Cliente> buscarTodos() {
@@ -60,7 +60,7 @@ public class ClienteServiceImpl implements ClienteService {
         String cep = cliente.getEndereco().getCep();
         Endereco endereco = enderecoRepository.findById(cep).orElseGet(() -> {
             // Caso não exista, integrar com o ViaCEP e persistir o retorno.
-            Endereco novoEndereco = ViaCepService.consultarCep(cep);
+            Endereco novoEndereco = ViaCepService.consultarCep(cep); // CONSERTAR AQUI
             enderecoRepository.save(novoEndereco);
             return novoEndereco;
         });
