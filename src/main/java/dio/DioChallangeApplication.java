@@ -13,9 +13,9 @@ public class DioChallangeApplication {
 		SpringApplication.run(DioChallangeApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String index() {
-		return "Hello World";
-	}
+	// @GetMapping("/")
+	// public String index() {
+	// return "Hello World";
+	// }
 
 }
