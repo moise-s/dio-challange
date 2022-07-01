@@ -20,7 +20,7 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private EnderecoRepository enderecoRepository;
     @Autowired
-    private ViaCepService enderecoService;
+    private ViaCepService viaCepService;
 
     @Override
     public Iterable<Cliente> buscarTodos() {
@@ -60,7 +60,7 @@ public class ClienteServiceImpl implements ClienteService {
         String cep = cliente.getEndereco().getCep();
         Endereco endereco = enderecoRepository.findById(cep).orElseGet(() -> {
             // Caso não exista, integrar com o ViaCEP e persistir o retorno.
-            Endereco novoEndereco = ViaCepService.consultarCep(cep); // CONSERTAR AQUI
+            Endereco novoEndereco = viaCepService.consultarCep(cep);
             enderecoRepository.save(novoEndereco);
             return novoEndereco;
         });
